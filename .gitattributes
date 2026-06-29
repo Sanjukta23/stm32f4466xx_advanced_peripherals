@@ -1,0 +1,23 @@
+# Normalise line endings — store as LF in the repo,
+# check out native on each OS.
+* text=auto
+
+# C/C++ source and headers
+*.c   text
+*.h   text
+*.cpp text
+*.hpp text
+
+# Build / linker / config
+*.ld  text
+*.s   text
+*.S   text
+*.txt text
+*.md  text
+
+# Binary files — never touch line endings
+*.bin binary
+*.hex binary
+*.elf binary
+*.o   binary
+*.a   binary
