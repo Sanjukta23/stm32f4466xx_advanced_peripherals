@@ -8,8 +8,9 @@
 
 #include "main.h"
 
-extern TIM_HandleTypeDef htimer2;
-extern TIM_HandleTypeDef htimer6;
+extern TIM_HandleTypeDef  htimer2;
+extern TIM_HandleTypeDef  htimer6;
+extern UART_HandleTypeDef huart2;
 
 /**
   * @brief This function handles System tick timer.
@@ -26,9 +27,9 @@ void SysTick_Handler (void)
   */
 void TIM6_DAC_IRQHandler(void)
 {
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_12,GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(GPIOA,GPIO_PIN_12,GPIO_PIN_SET);
 	HAL_TIM_IRQHandler(&htimer6);
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_12,GPIO_PIN_RESET);
+	//HAL_GPIO_WritePin(GPIOA,GPIO_PIN_12,GPIO_PIN_RESET);
 }
 
 /**
