@@ -1,0 +1,15 @@
+/*
+ * main.h
+ *
+ *  Created on: Jul 6, 2026
+ *      Author: SANJU
+ */
+
+#include "stm32f4xx_hal.h"
+
+#define SYS_CLOCK_FREQ_50_MHZ   50
+#define SYS_CLOCK_FREQ_84_MHZ   84
+#define SYS_CLOCK_FREQ_120_MHZ  120
+
+#define TRUE  1
+#define FALSE 0
