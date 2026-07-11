@@ -59,13 +59,21 @@ static void MX_TIM6_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+/*void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 
   UNUSED(htim);
  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 
+}*/
+
+__weak void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+
+  UNUSED(GPIO_Pin);
+  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -100,7 +108,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
- HAL_TIM_Base_Start_IT(&htim6);
+ //HAL_TIM_Base_Start_IT(&htim6);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -259,6 +267,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
